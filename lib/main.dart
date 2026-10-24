@@ -26,8 +26,9 @@ class CoffeeItem {
   final String image;
   final String title;
   final String description;
+  final Color couleur; // couleur du texte pour ce café
 
-  const CoffeeItem(this.image, this.title, this.description);
+  const CoffeeItem(this.image, this.title, this.description, this.couleur);
 }
 
 class HomePage extends StatefulWidget {
@@ -45,36 +46,42 @@ class _HomePageState extends State<HomePage> {
       'Grains et café noir',
       'Une tasse de café noir posée sur une table en bois, '
           'à côté d\'un sac en toile de jute rempli de grains torréfiés.',
+      Colors.blue,
     ),
     CoffeeItem(
       'assets/coffee2.jpg',
       'Café noir rétro',
       'Un café noir bien serré servi dans une tasse vintage '
           'à motifs étoilés, avec une fine mousse en surface.',
+      Colors.red,
     ),
     CoffeeItem(
       'assets/coffee3.jpg',
       'Latte art en cœur',
       'Un cappuccino décoré d\'un cœur et de volutes de chocolat, '
           'tenu à deux mains, à côté d\'une viennoiserie.',
+      Colors.green,
     ),
     CoffeeItem(
       'assets/coffee4.jpg',
       'Café et grains frais',
       'Vue du dessus d\'un café noir entouré de grains torréfiés '
           'et de feuilles de caféier.',
+      Colors.purple,
     ),
     CoffeeItem(
       'assets/coffee5.jpg',
       'Espresso fumant',
       'Un espresso crémeux et chaud dans une tasse blanche, '
           'posé sur des grains de café et un sac en toile de jute.',
+      Colors.orange,
     ),
     CoffeeItem(
       'assets/coffee6.jpg',
       'Latte art en feuille',
       'Un café au lait avec un joli motif de feuille (rosetta) '
           'dessiné dans la mousse, vu du dessus.',
+      Colors.teal,
     ),
   ];
 
@@ -201,10 +208,10 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(height: 24),
               Text(
                 item.title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+                  color: item.couleur,
                 ),
               ),
               const SizedBox(height: 12),
@@ -213,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   item.description,
                   textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 16, color: Colors.black87),
+                  style: TextStyle(fontSize: 16, color: item.couleur),
                 ),
               ),
               const SizedBox(height: 24),
